@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUIContinueLearningApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CustomViewModifier()
         }
     }
 }
