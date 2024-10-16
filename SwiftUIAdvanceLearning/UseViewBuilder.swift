@@ -82,8 +82,8 @@ struct UseViewBuilder: View {
 }
 
 #Preview {
-//    UseViewBuilder()
-    LocalViewbuilder(type: .Three)
+    UseViewBuilder()
+//    LocalViewbuilder(type: .Three)
 }
 
 

@@ -17,7 +17,7 @@ struct CustomShapes: View {
 //                .trim(from: 0.0, to: 0.5)
 //                .stroke(style: StrokeStyle(lineWidth: 5, dash: [150, 100], dashPhase: 50))
 //                .rotationEffect(Angle(degrees: 180))
-                .frame(width: 300, height: 100)
+                .frame(width: 120, height: 60)
             
         }
     }

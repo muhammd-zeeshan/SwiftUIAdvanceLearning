@@ -23,19 +23,77 @@ extension View {
 
 struct CustomButtonStyle: View {
     var body: some View {
-        Button {
+        VStack{
+            Button {
+                
+            } label: {
+                Text("Click me")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
+            }
+            .withpressableStyle()
+            .padding(40)
             
-        } label: {
-            Text("Click me")
-                .font(.headline)
-                .foregroundStyle(.white)
-                .frame(height: 55)
-                .frame(maxWidth: .infinity)
-                .background(Color.accentColor)
-                .cornerRadius(10)
+            Button {
+                
+            } label: {
+                Text("Click me")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
+            }
+            .withpressableStyle()
+            .padding(40)
+            
+            Button {
+                
+            } label: {
+                Text("Click me")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
+            }
+            .withpressableStyle()
+            .padding(40)
+            
+            Button {
+                
+            } label: {
+                Text("Click me")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
+            }
+            .withpressableStyle()
+            .padding(40)
+            
+            Button {
+                
+            } label: {
+                Text("Click me")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
+            }
+            .withpressableStyle()
+            .padding(40)
         }
-        .withpressableStyle()
-        .padding(40)
     }
 }
 

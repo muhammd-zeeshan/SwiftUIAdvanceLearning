@@ -11,22 +11,15 @@ struct UsePrefrenceKey: View {
     @State private var text: String = "Hello world"
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 SecondaryScreen(text: text)
                     .navigationTitle("Navigation Title")
-                    .customTitle("NEW VALUE")
             }
         }
-        .onPreferenceChange(CustomTitlePrefrenceKey.self) { value in
+        .onPreferenceChange(CustomTitlePrefrenceKeyfile.self) { value in
             self.text = value
         }
-    }
-}
-
-extension View {
-    func customTitle(_ text: String) -> some View {
-        preference(key: CustomTitlePrefrenceKey.self, value: text)
     }
 }
 
@@ -35,16 +28,35 @@ extension View {
 }
 
 
+extension View {
+    
+    func customTitle(_ text : String) -> some View {
+        self
+            .preference(key: CustomTitlePrefrenceKeyfile.self, value: text)
+    }
+    
+}
+
+
 struct SecondaryScreen: View {
     let text: String
+    @State private var newValue: String = ""
     
     var body: some View {
         Text(text)
+            .onAppear(perform: getDataFromBase)
+            .customTitle(newValue)
+    }
+    
+    func getDataFromBase() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.newValue = "New value From Database"
+        }
     }
 }
 
 
-struct CustomTitlePrefrenceKey: PreferenceKey {
+struct CustomTitlePrefrenceKeyfile: PreferenceKey {
     static var defaultValue: String = ""
     
     static func reduce(value: inout String, nextValue: () -> String) {
@@ -52,5 +64,3 @@ struct CustomTitlePrefrenceKey: PreferenceKey {
     }
 }
 
-
-// MARK: Skip for now

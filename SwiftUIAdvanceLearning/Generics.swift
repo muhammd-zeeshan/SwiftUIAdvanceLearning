@@ -23,7 +23,7 @@ struct BoolModel {
     }
 }
 
-// MARK: Single Generic Model that hold and perform action an any type
+// MARK: Single Generic Model that hold and perform action on any type
 struct GenericModel<CustomType> {
     let info: CustomType?
     
@@ -49,7 +49,7 @@ class GenericsViewModel: ObservableObject {
     }
 }
 
-// MARK: Also we able to create Generic View
+// MARK: Also we able to create Generic View to add another view when i use this view
 struct GenericView<T:View> : View {
     
     let title: String

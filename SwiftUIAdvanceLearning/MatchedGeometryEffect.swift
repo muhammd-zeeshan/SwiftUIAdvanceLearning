@@ -14,25 +14,24 @@ struct MatchedGeometryEffect: View {
     var body: some View {
         VStack {
             if !isClicked {
-                RoundedRectangle(cornerRadius: 25.0)
-                    .matchedGeometryEffect(id: "Rect", in: nameSpace)
+                RoundedRectangle(cornerRadius: 25)
+                    .matchedGeometryEffect(id: "Rectangle", in: nameSpace)
                     .frame(width: 100, height: 100)
             }
-//                .offset(y: isClicked ? UIScreen.main.bounds.height * 0.80 : 0.0)
+            
+//                .offset(y: isClicked ? UIScreen.main.bounds.height * 0.80 : 0)
             
             Spacer()
             
             if isClicked {
                 RoundedRectangle(cornerRadius: 25)
-                    .matchedGeometryEffect(id: "Rect", in: nameSpace)
-                    .frame(width: 300, height: 300)
+                    .matchedGeometryEffect(id: "Rectangle", in: nameSpace)
+                    .frame(width: 300, height: 100)
             }
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.red)
         .onTapGesture {
-            withAnimation(.linear(duration: 1.0)){
+            withAnimation(.easeInOut) {
                 isClicked.toggle()
             }
         }
@@ -44,36 +43,36 @@ struct MatchedGeometryEffect: View {
     MatchedGeometryEffect2()
 }
 
-
 struct MatchedGeometryEffect2: View {
-    let categorize: [String] = ["Home", "Popular", "Saved"]
+    
+    let categorize: [String] = ["Summary", "Wallets", "Shared"]
     @State private var selected: String = ""
     @Namespace private var nameSpace2
     
     var body: some View {
         HStack {
-            ForEach(categorize, id: \.self) { categorize in
-                ZStack(alignment: .bottom){
-                    if selected == categorize{
+            ForEach(categorize, id: \.self) { category in
+                ZStack(alignment: .bottom) {
+                    if selected == category{
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color.red)
-                            .matchedGeometryEffect(id: "category_background", in: nameSpace2)
-                            .frame(width: 50, height: 2)
-                            .offset(y: 6)
+                            .matchedGeometryEffect(id: "Category", in: nameSpace2)
+                            .frame(width: 35, height: 2)
+                            .offset(y: 10)
                     }
-                    
-                    Text(categorize)
-                        .foregroundStyle(selected == categorize ? .red : .black)
+            
+                    Text(category)
+                        .foregroundStyle(selected == category ? .red : .black)
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 55)
                 .onTapGesture {
-                    withAnimation(.spring()) {
-                        selected = categorize
+                    withAnimation(.spring) {
+                        selected = category
                     }
                 }
             }
         }
-        .padding()
     }
 }
+

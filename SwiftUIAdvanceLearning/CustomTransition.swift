@@ -37,7 +37,7 @@ extension AnyTransition {
     static var rotatingOn: AnyTransition {
         return AnyTransition.asymmetric(
             insertion: .rotating,
-            removal: .move(edge: .top))
+            removal: .rotating)
     }
 }
 
@@ -52,10 +52,10 @@ struct CustomTransition: View {
                 RoundedRectangle(cornerRadius: 25)
                     .frame(width: 250, height: 350)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                    .transition(.move(edge: .leading))
+                    .transition(.move(edge: .leading))
 //                    .transition(AnyTransition.rotating.animation(.easeInOut))
 //                    .transition(.rotating(rotation: 1080))
-                    .transition(.rotatingOn)
+//                    .transition(.rotatingOn)
             }
             
             Spacer()
